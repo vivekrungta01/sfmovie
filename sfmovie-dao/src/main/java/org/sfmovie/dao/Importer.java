@@ -45,6 +45,9 @@ public class Importer
             		mongoColl.insertMany(docList);
             		docList = new ArrayList<Document>();
             	}
+            } 
+            if (docList.size()>0) { 
+            	mongoColl.insertMany(docList);
             }
     	} catch(Exception e) {
     		System.err.println(e);
