@@ -2,6 +2,7 @@ package org.sfmovie.common;
 
 import java.io.Serializable;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -12,7 +13,7 @@ public class MovieLocation implements Serializable {
 	private static final long serialVersionUID = 6894953557838306575L;
 	
 	@Id
-	private Long id;
+	private ObjectId id;
 	@Field("actor_1")
 	private String actor1;
 	@Field("actor_2")
@@ -25,10 +26,10 @@ public class MovieLocation implements Serializable {
 	private String lat;
 	private String lng;
 	
-	public Long getId() {
+	public ObjectId getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 	public String getActor1() {
@@ -78,6 +79,12 @@ public class MovieLocation implements Serializable {
 	}
 	public void setLng(String lng) {
 		this.lng = lng;
+	}
+	@Override
+	public String toString() {
+		return "MovieLocation [id=" + id + ", actor1=" + actor1 + ", actor2=" + actor2 + ", director=" + director
+				+ ", releaseYear=" + releaseYear + ", locations=" + locations + ", title=" + title + ", lat=" + lat
+				+ ", lng=" + lng + "]";
 	}
 	
 }

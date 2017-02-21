@@ -28,7 +28,7 @@ public class Importer
             JSONArray jsonArray = (JSONArray) obj;
             List<Document> docList = new ArrayList<Document>();
             int i=0;
-            MongoCollection<Document> mongoColl=mongoClient.getDatabase("sfmovie").getCollection("film_location");
+            MongoCollection<Document> mongoColl=mongoClient.getDatabase("sfmovie").getCollection("movie_location");
             for(Object object:jsonArray.toArray()) {
             	JSONObject jsonObject = (JSONObject) object;
             	Document doc = Document.parse(jsonObject.toJSONString());

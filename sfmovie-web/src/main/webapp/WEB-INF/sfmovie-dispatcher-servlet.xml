@@ -11,20 +11,15 @@
         http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-        
-	<context:component-scan base-package="org.sfmovie" />
-	<mvc:annotation-driven />
-	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
-    	<property name="host" value="localhost" />
-	</bean>
-	<bean id="mongoCredentials" class="org.springframework.data.authentication.UserCredentials">
-     <constructor-arg name="username" value="vivek" />
-     <constructor-arg name="password" value="vivek" />
-	</bean>
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-     	<constructor-arg name="mongo" ref="mongo" />
-     	<constructor-arg name="databaseName" value="sfmovie" />
-     	<constructor-arg name="userCredentials" ref="mongoCredentials"/>
-	</bean>
-	<mongo:repositories base-package="org.sfmovie.dao.mongo.repositories" />
+    <bean id="jspViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="order" value="1"/>
+        <property name="prefix">
+            <value>/WEB-INF/pages/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 </beans>
