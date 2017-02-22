@@ -21,7 +21,7 @@ public class Importer
     public static void main( String[] args )
     {
     	JSONParser parser = new JSONParser();
-    	MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://vivek:vivek@localhost/sfmovie") );
+    	MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://vivek:vivek@ds157509.mlab.com:57509/sfmovie") );
     	try {	
             Object obj = parser.parse(new FileReader(
                     "src/main/resources/sfmovie-data.json"));
