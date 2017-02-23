@@ -30,7 +30,7 @@ Create a service that shows on a map where movies have been filmed in San Franci
 
 - Implemented the back-end as a REST service for getting all movie details to frontend
    
-- A Importer script is used to retrieve the DataSF api json file from local storage and loop through all results (calling Google Maps Geocode API to retrieve latitude and longitude for all unique locations) to properly fill movie_location collection in mongo.
+- A [Importer script][4] is used to retrieve the DataSF api json file from local storage and loop through all results (calling Google Maps Geocode API to retrieve latitude and longitude for all unique locations) to properly fill movie_location collection in mongo.
 
 - Used spring mongo data to query in mongo ..
 
@@ -38,7 +38,7 @@ Create a service that shows on a map where movies have been filmed in San Franci
 
 - In addition, I used Heroku to deploy the app. I normally use Heroku to deploy basic web apps mainly because it is simple/fast to deploy, and because the app restarts every so often (easy mechanism to handle crashes).
 
-- For this project I used Mongo  from [mLab][4] and Redis from [redisLab][5]
+- For this project I used Mongo  from [mLab][5] and Redis from [redisLab][6]
 
 
 # Frontend Architecture
@@ -60,5 +60,7 @@ Create a service that shows on a map where movies have been filmed in San Franci
 [1]: https://quiet-scrubland-61429.herokuapp.com/sfmovie/
 [2]: https://github.com/vivekrungta01/sfmovie
 [3]: https://www.linkedin.com/in/vivek-rungta-7a84a120/
-[4]: https://mlab.com/databases/sfmovie
-[5]: https://app.redislabs.com/
+[4]: https://github.com/vivekrungta01/sfmovie/blob/master/sfmovie-dao/src/main/java/org/sfmovie/dao/Importer.java
+[5]: https://mlab.com/databases/sfmovie
+[6]: https://app.redislabs.com/
+
