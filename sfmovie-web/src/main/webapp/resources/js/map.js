@@ -19,7 +19,7 @@
       // window containing info about the movie title, filming location, fun facts, and actors.
       // Create a marker for each place.
       markerArray = [];
-      $.getJSON("http://localhost:8080/sfmovie/movie/getAll", function (data) {
+      $.getJSON("/sfmovie/movie/getAll", function (data) {
     	  jQuery.each(data, function() {
     		  var coordPosition = new google.maps.LatLng(this.lat, this.lng);
               var marker = new google.maps.Marker({
