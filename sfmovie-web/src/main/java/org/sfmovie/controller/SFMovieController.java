@@ -1,4 +1,5 @@
 package org.sfmovie.controller;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,13 @@ public class SFMovieController {
 	
 	@RequestMapping(value = "/movie/getAll", method = RequestMethod.GET)
     public @ResponseBody List<MovieLocation> getMovie(HttpServletRequest request, HttpServletResponse response) {
-    	List<MovieLocation> movieLocations = sFMovieLocationService.getAllSFMovieLocation();
+		List<MovieLocation> movieLocations = new ArrayList<MovieLocation>();
+		try {
+			movieLocations = sFMovieLocationService.getAllSFMovieLocation();
+		} catch (Exception e) {
+			//catching exception
+			System.out.println("Error in getting movieLocation");
+		}
     	return movieLocations;
     }
 	
