@@ -79,7 +79,6 @@
 	        appendTo : "#search-bar",
 	        source : function (request, response) {
                 var term = request.term;
-				
                 // Get relevant movies
                 var movies = $.grep(markerArray, function (movie) {
                     return movie.title.toLowerCase()
@@ -102,8 +101,11 @@
                 }
 
                 response(titles);
-    },
-}); 
+	        },
+	        select: function(event, ui) {
+	        	selectMarkerToVisible(ui.item.value);
+			}
+        }); 
        var input = (document.getElementById('pac-input'));
        var yearSlider = (document.getElementById('release_year_filter'));
        var undoFilters = (document.getElementById('undo_all_filters'));
@@ -115,34 +117,9 @@
            var ENTER_KEY = 13;
            if (event.keyCode === ENTER_KEY) {
         	   var input = $("#pac-input").val();
-        	   input = input.toLowerCase();
-        	   for (var markerCount=0;markerCount<markerArray.length;markerCount++) {
-            	   var movie=markerArray[markerCount];
-            	   var minYear = document.getElementById("display_year").innerHTML;
-            	   if(movie.title !== null && movie.title.toLowerCase() == input && parseInt(movie.releaseYear) >= parseInt(minYear)) {
-            		   movie.setVisible(true);
-            	   }
-                   else {
-                      movie.setVisible(false);
-                  }
-                }
+        	   selectMarkerToVisible(input);
            }
        });
-//       var searchBox = new google.maps.places.SearchBox((input));
-		
-       // Attach "places_changed" event handler on the search box. Enable autocompletion. Then do filtering.
-//       google.maps.event.addListener(searchBox, 'places_changed', function() {
-//           for (var markerCount=0;markerCount<markerArray.length;markerCount++) {
-//        	   var movie=markerArray[markerCount];
-//        	   var minYear = document.getElementById("display_year").innerHTML;
-//        	   if(movie.title !== null && movie.title.toLowerCase() == input.value.toLowerCase() && parseInt(movie.releaseYear) >= parseInt(minYear)) {
-//        		   movie.setVisible(true);
-//        	   }
-//               else {
-//                  movie.setVisible(false);
-//              }
-//            }
-//       });
         var undoAllFilters = $("#undo_all_filters");
         undoAllFilters.on("click", function() {
            setAllMap();
@@ -161,6 +138,20 @@
       for (var markerCount = 0;markerCount < markerArray.length;markerCount++) {
           markerArray[markerCount].setVisible(true);
       }
+  }
+  
+  function selectMarkerToVisible(input) {
+	   input = input.toLowerCase();
+	   for (var markerCount=0;markerCount<markerArray.length;markerCount++) {
+   	   var movie=markerArray[markerCount];
+   	   var minYear = document.getElementById("display_year").innerHTML;
+   	   if(movie.title !== null && movie.title.toLowerCase() == input && parseInt(movie.releaseYear) >= parseInt(minYear)) {
+   		   movie.setVisible(true);
+   	   }
+          else {
+             movie.setVisible(false);
+         }
+       }
   }
 
   function encodeTextForRTLink(name) {
