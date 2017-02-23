@@ -97,8 +97,8 @@
                 });
 
                 // Return a reasonable number of suggestions
-                if (titles.length > 5) {
-                    titles = titles.slice(0,5);
+                if (titles.length > 10) {
+                    titles = titles.slice(0,10);
                 }
 
                 response(titles);
