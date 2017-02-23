@@ -2,7 +2,7 @@
 
 // # Constants
 
-var BASE_URL = "http://localhost:5000/sfmovies/api/";
+var BASE_URL = "http://localhost:8080/sfmovie/api/";
 
 // # Functions
 
