@@ -14,6 +14,14 @@
     
   </head>
   <body>
+    <h1 class="ribbon">
+      <strong class="ribbon-content">
+        <div class="app_title">SF Film Locations</div><br>
+        <div class="author">Made by <a target='_blank' href="https://www.github.com/vivekrungta01/">Vivek Rungta</a><br>with Spring connected to MongoDB and Redis
+        </div>
+      </strong>
+    </h1>
+    <div id="map-canvas"></div>
   <div id="search-bar">
     <input id="pac-input" class="controls" type="text" placeholder="Enter movie title">
     </div>
@@ -23,13 +31,5 @@
       <span id="display_year">1940</span>
     </div>
     <button id="undo_all_filters">Undo All Filters</button>
-    <h1 class="ribbon">
-      <strong class="ribbon-content">
-        <div class="app_title">SF Film Locations</div><br>
-        <div class="author">Made by <a target='_blank' href="https://www.github.com/vivekrungta01/">Vivek Rungta</a><br>with Spring connected to MongoDB and Redis
-        </div>
-      </strong>
-    </h1>
-    <div id="map-canvas"></div>
   </body>
 </html>
